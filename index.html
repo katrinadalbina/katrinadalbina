@@ -1,250 +1,159 @@
 <!DOCTYPE html>
-<!-- ↑ Šis saka pārlūkam: "Šis ir HTML5 dokuments" -->
-
 <html lang="lv">
-<!-- ↑ <html> - Visa lapas sākums. lang="lv" nozīmē latviešu valoda -->
-
 <head>
-<!-- ↑ <head> satur informāciju PAR lapu (lietotājs neredz) -->
-<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Dzīvā galerija</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background: #fff;
+    color: #1a1a1a;
+    overflow-x: hidden;
+}
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+h1, h2, h3, p { margin: 0; padding: 0; }
 
+/* HEADER */
+header {
+    padding: 2rem 4rem;
+    background: white;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 { font-size: 1rem; font-weight: 500; }
+nav ul { list-style: none; display: flex; gap: 2rem; }
+nav a { text-decoration: none; color: #666; }
+nav a:hover { color: #1a1a1a; }
+
+/* HERO */
+.hero {
+    padding: 4rem 4rem 2rem;
+    text-align: center;
+}
+
+.hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.25rem; color: #666; }
+
+/* GALERIJA - DZĪVA KAUDZE */
+.portfolio {
+    position: relative;
+    height: 500px; /* augstums galerijai */
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.gallery img {
+    position: absolute;
+    width: 300px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, z-index 0.3s;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Hover efekts - palielina un paceļ priekšplānā */
+.gallery img:hover {
+    transform: scale(1.2) rotate(0deg);
+    z-index: 100;
+}
+
+/* Automātiska neliela kustība */
+@keyframes float1 {
+    0% { transform: translate(0,0) rotate(0deg); }
+    50% { transform: translate(10px,5px) rotate(2deg); }
+    100% { transform: translate(0,0) rotate(0deg); }
+}
+
+@keyframes float2 {
+    0% { transform: translate(0,0) rotate(0deg); }
+    50% { transform: translate(-8px,7px) rotate(-3deg); }
+    100% { transform: translate(0,0) rotate(0deg); }
+}
+
+@keyframes float3 {
+    0% { transform: translate(0,0) rotate(0deg); }
+    50% { transform: translate(5px,-6px) rotate(1deg); }
+    100% { transform: translate(0,0) rotate(0deg); }
+}
+
+/* Katram attēlam savs sākuma pozīcijas un animācija */
+#img1 { top: 50px; left: 100px; animation: float1 6s ease-in-out infinite; }
+#img2 { top: 100px; left: 250px; animation: float2 5s ease-in-out infinite; }
+#img3 { top: 150px; left: 400px; animation: float3 7s ease-in-out infinite; }
+#img4 { top: 50px; left: 550px; animation: float1 6s ease-in-out infinite; }
+#img5 { top: 120px; left: 700px; animation: float2 5s ease-in-out infinite; }
+#img6 { top: 80px; left: 850px; animation: float3 7s ease-in-out infinite; }
+
+/* FOOTER */
+footer {
+    background: white;
+    border-top: 1px solid #e5e5e5;
+    padding: 3rem 4rem;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer a { color: #666; text-decoration: none; }
+footer a:hover { color: #1a1a1a; }
+
+</style>
 </head>
-    <meta charset="UTF-8">
-    <!-- ↑ Atbalsta latviešu burtus (ā, č, ē, ģ...) -->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ↑ Lai lapa labi izskatās uz mobilajiem telefoniem -->
-
-    <title>Portfolio</title>
-    <!-- ↑ Teksts, ko redz pārlūka tab augšā -->
-
-    <link rel="stylesheet" href="style.css">
-    <!-- ↑ SVARĪGI! Pievieno CSS failu ar stiliem -->
-    <!-- href="style.css" nozīmē: meklē style.css TAJĀ PAŠĀ mapē -->
-
-</head>
-<!-- ↑ Head beidzas -->
-
 <body>
-<!-- ↑ <body> satur visu, ko lietotājs REDZ lapā -->
-   
-    <!-- ========================================
-         HEADER - Augšējā navigācijas josla
-         ======================================== -->
-    <header>
-    <!-- ↑ Semantiskais tags lapas galvenei -->
-    <!-- Šeit būs logo un menu -->
 
-        <nav>
-        <!-- ↑ <nav> - navigācijas elements -->
+<header>
+    <nav>
+        <h1>Katrīna Līva Dalbiņa</h1>
+        <ul>
+            <li><a href="#">Sākums</a></li>
+            <li><a href="#">Par mani</a></li>
+            <li><a href="#">Kontakti</a></li>
+        </ul>
+    </nav>
+</header>
 
-            <h1>Katrīna Līva Dalbiņa</h1>
-            <!-- ↑ <h1> - Galvenais virsraksts (lielākais) -->
-            <!-- Šeit students raksta savu vārdu -->
+<main>
+    <section class="hero">
+        <h2>Māksliniece<br>un programmētāja</h2>
+        <p>Radu interaktīvas pieredzes, kurās māksla satiekas ar tehnoloģijām.</p>
+    </section>
 
-            <ul>
-            <!-- ↑ <ul> - Unordered List (saraksts ar punktiem) -->
-
-                <li><a href="index.html">Sākums</a></li>
-                <!-- ↑ <li> - List Item (saraksta elements) -->
-                <!-- <a href="..."> - saite uz citu lapu -->
-                <!-- href="index.html" - ved uz šo pašu lapu -->
-
-                <li><a href="about.html">Par mani</a></li>
-                <!-- ↑ Saite uz "Par mani" lapu (vēl nav izveidota) -->
-
-                <li><a href="contact.html">Kontakti</a></li>
-                <!-- ↑ Saite uz "Kontakti" lapu (vēl nav izveidota) -->
-
-            </ul>
-            <!-- ↑ Saraksta beigas -->
-
-        </nav>
-        <!-- ↑ Navigācijas beigas -->
-
-    </header>
-    <!-- ↑ Header beidzas -->
-
-    <!-- ========================================
-         MAIN - Galvenais saturs
-         ======================================== -->
-    <main>
-    <!-- ↑ <main> - galvenais lapas saturs -->
-
-        <!-- HERO SEKCIJA - Liela intro daļa -->
-        <section class="hero">
-        <!-- ↑ <section> - semantisks satura bloks -->
-        <!-- class="hero" - CSS var mērķēt šo konkrēto sekciju -->
-
-            <h2>Māksliniece<br>un programmētāja</h2>
-            <!-- ↑ <h2> - Otrā līmeņa virsraksts (mazāks par h1) -->
-            <!-- <br> - line break, jauna rinda -->
-
-            <p>Radu interaktīvas pieredzes, kurās māksla satiekas ar tehnoloģijām.</p>
-            <!-- ↑ <p> - Paragraph (rindkopa/paragrāfs) -->
-
-        </section>
-        <!-- ↑ Hero sekcijas beigas -->
-
-        <!-- PORTFOLIO SEKCIJA - Darbu galerija -->
-        <section class="portfolio">
-        <!-- ↑ Jauna sekcija ar class="portfolio" -->
-
-            <h2>Izvēlētie darbi</h2>
-            <!-- ↑ Sekcijas virsraksts -->
-
-            <div class="gallery">
-            <!-- ↑ <div> - Container (kastīte grupēšanai) -->
-            <!-- class="gallery" - CSS izmantos, lai izveidotu grid layout -->
-
-                <!-- PROJEKTS 1 -->
-                <div class="project-card card1">
-                <!-- ↑ Pirmā projekta kartīte -->
-                <!-- 2 klases: "project-card" (vispārīgi stili) + "card1" (specifiskā krāsa) -->
-
-                    <div class="img-placeholder"></div>
-                    <!-- ↑ Tukša kastīte attēlam -->
-                    <!-- CSS piešķirs pelēko fonu -->
-                    <!-- Vēlāk var pievienot: <img src="images/project1.jpg"> -->
-
-                    <h3>Projekta nosaukums</h3>
-                    <!-- ↑ <h3> - Trešā līmeņa virsraksts (vēl mazāks) -->
-                    <!-- Students šeit raksta sava darba nosaukumu -->
-
-                    <p>Interaktīva instalācija, 2025</p>
-                    <!-- ↑ Īss darba apraksts -->
-
-                </div>
-                <!-- ↑ Projekta 1 beigas -->
-
-                <!-- PROJEKTS 2 -->
-                <div class="project-card card2">
-                <!-- ↑ Otrā projekta kartīte -->
-                <!-- card2 = cita fona krāsa CSS -->
-
-                    <div class="img-placeholder"></div>
-                    <!-- ↑ Vieta otrajam attēlam -->
-
-                    <h3>Projekta nosaukums</h3>
-                    <!-- ↑ Otra projekta nosaukums -->
-
-                    <p>Ģeneratīvā māksla, 2025</p>
-                    <!-- ↑ Otra projekta apraksts -->
-
-                </div>
-                <!-- ↑ Projekta 2 beigas -->
-
-                <!-- PROJEKTS 3 -->
-                <div class="project-card card3">
-                <!-- ↑ Trešā projekta kartīte -->
-
-                    <div class="img-placeholder"></div>
-                    <!-- ↑ Vieta trešajam attēlam -->
-
-                    <h3>Projekta nosaukums</h3>
-                    <!-- ↑ Trešā projekta nosaukums -->
-
-                    <p>Web eksperiments, 2025</p>
-                    <!-- ↑ Trešā projekta apraksts -->
-
-                </div>
-                <!-- ↑ Projekta 3 beigas -->
-
-            </div>
-            <!-- ↑ Gallery beidzas -->
-
-        </section>
-        <!-- ↑ Portfolio sekcijas beigas -->
-
-    </main>
-    <!-- ↑ Main satura beigas -->
-
-    <!-- ========================================
-         FOOTER - Apakšējā daļa ar info
-         ======================================== -->
-    <footer>
-    <!-- ↑ <footer> - semantisks tags lapas kājenei -->
-
-        <div class="footer-content">
-        <!-- ↑ Container kas centēs saturu (CSS) -->
-
-            <p>© 2026 Katrīna Līva Dalbiņa</p>
-            <!-- ↑ Copyright simbols © un vārds -->
-
-            <div class="social-links">
-            <!-- ↑ Container sociālajām saitēm -->
-
-                
-                <!-- ↑ Saite uz Instagram -->
-               <a href="https://www.instagram.com/k.lllv/" target="_blank">Instagram</a>
-
-                <a href="#">Youtube</a>
-                <!-- ↑ Saite uz Youtube -->
-
-                <a href="#">Facebook</a>
-                <!-- ↑ Saite uz Facebook -->
-
-            </div>
-            <!-- ↑ Social links beidzas -->
-
+    <section class="portfolio">
+        <h2>Izvēlētie darbi</h2>
+        <div class="gallery">
+            <img id="img1" src="https://via.placeholder.com/300x200?text=1" alt="Darbs 1">
+            <img id="img2" src="https://via.placeholder.com/300x200?text=2" alt="Darbs 2">
+            <img id="img3" src="https://via.placeholder.com/300x200?text=3" alt="Darbs 3">
+            <img id="img4" src="https://via.placeholder.com/300x200?text=4" alt="Darbs 4">
+            <img id="img5" src="https://via.placeholder.com/300x200?text=5" alt="Darbs 5">
+            <img id="img6" src="https://via.placeholder.com/300x200?text=6" alt="Darbs 6">
         </div>
-        <!-- ↑ Footer content beidzas -->
+    </section>
+</main>
 
-    </footer>
-    <!-- ↑ Footer beidzas -->
+<footer>
+    <p>© 2026 Katrīna Līva</p>
+    <div>
+        <a href="https://www.instagram.com/k.lllv/" target="_blank">Instagram</a> |
+        <a href="#">Youtube</a> |
+        <a href="#">Facebook</a>
+    </div>
+</footer>
 
 </body>
-<!-- ↑ Body beidzas -->
-
 </html>
-<!-- ↑ Visa HTML dokumenta beigas -->
-
-
-<!--
-==============================================
-KOPSAVILKUMS - LAPAS STRUKTŪRA:
-==============================================
-
-1. HEADER (augšā)
-   └── Logo (Vārds Uzvārds) + Menu saites
-
-2. MAIN (vidus)
-   ├── HERO sekcija
-   │   └── Liels virsraksts + apraksts
-   └── PORTFOLIO sekcija
-       └── 3 projektu kartītes
-           ├── Attēla vieta
-           ├── Nosaukums
-           └── Apraksts
-
-3. FOOTER (apakšā)
-   └── Copyright + Sociālās saites
-
-==============================================
-KO MAINĪT:
-==============================================
-
-✏️  Rinda 14: Tavs vārds
-✏️  Rinda 27: Hero virsraksts
-✏️  Rinda 28: Hero apraksts
-✏️  Rinda 40-42: Projekts 1 info
-✏️  Rinda 49-51: Projekts 2 info
-✏️  Rinda 58-60: Projekts 3 info
-✏️  Rinda 71: Copyright vārds
-✏️  Rinda 75-79: Sociālo saišu URL
-==============================================
--->
-
-
