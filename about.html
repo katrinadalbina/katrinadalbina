@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!--
+  ================================================================
+  PAGE TITLE
+  ================================================================
+  Shows in the browser tab.
+  PERSONALISE: replace "Sunny Katrina" with your name.
+  ================================================================
+  -->
+  <title>About — Katrīna Līva Dalbiņa</title>
+
+  <!--
+  ================================================================
+  FONT IMPORT
+  ================================================================
+  Same font as index.html. If you change the font on one page,
+  change it here too so both pages match.
+  ================================================================
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400&display=swap" rel="stylesheet">
+
+  <!--
+  ================================================================
+  STYLESHEET
+  ================================================================
+  Same shared style.css as index.html.
+  Keep all three files in the same folder.
+  ================================================================
+  -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+  <!--
+  ================================================================
+  HEADER
+  ================================================================
+  Identical structure to index.html header.
+  "About" link has class="active" here so it appears full opacity.
+  PERSONALISE: replace "Sunny Katrina" with your name.
+  ================================================================
+  -->
+  <header>
+    <a href="index.html" class="site-name" style="text-decoration:none; color:inherit;">Katrīna Līva Dalbiņa</a>
+    <nav>
+      <a href="index.html">Work</a>
+      <a href="about.html" class="active">About</a>
+    </nav>
+  </header>
+
+
+  <!--
+  ================================================================
+  ABOUT SECTION
+  ================================================================
+  Two columns: your bio text on the left, portrait on the right.
+
+  TO WRITE YOUR BIO:
+    Edit the <p> paragraphs inside <div class="about-text">.
+    Add or remove <p> tags for more or fewer paragraphs.
+
+  TO ADD YOUR PORTRAIT:
+    Find <img class="about-photo" src="...">
+    Replace src="https://placehold.co/..." with your photo.
+    e.g. src="images/portrait.jpg"
+    Make sure the image file is in the same folder or in images/
+
+  TO RESIZE THE PORTRAIT COLUMN:
+    Open style.css and find .about-section
+    Change "240px" in grid-template-columns to a bigger or smaller number.
+  ================================================================
+  -->
+  <section class="about-section">
+
+    <div class="about-text">
+      <h2>About</h2>
+
+      <!--
+      PERSONALISE: Replace all paragraphs below with your real bio.
+      Each <p>...</p> is one paragraph. Add more if you need them.
+      -->
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+      <p>Write about your practice here — how you work with film, what draws you to black and white, the kinds of subjects or moments you are drawn to. This is your space.</p>
+
+      <!--
+      PERSONALISE: You can add a line with your city, year active,
+      or any short details. Example:
+      <p style="margin-top: 40px; font-size: 11px; letter-spacing: 0.1em; opacity: 0.5;">
+        Based in Riga — available for commissions
+      </p>
+      -->
+    </div>
+
+    <div>
+      <!--
+      PERSONALISE: Replace src with your portrait photo path.
+      e.g. src="images/portrait.jpg"
+      Change alt text to describe the photo (for accessibility).
+      -->
+      <img
+        class="about-photo"
+        src="https://placehold.co/240x320/cac7c0/999999?text=portrait"
+        alt="Portrait of Katrīna Līva Dalbiņa"
+      />
+    </div>
+
+  </section>
+
+
+  <!--
+  ================================================================
+  FOOTER
+  ================================================================
+  Same footer as index.html.
+  PERSONALISE:
+    · Replace "Sunny Katrina" with your name if needed
+    · Replace "@instagram" with your real Instagram handle
+      in both the href and the visible @instagram text
+  ================================================================
+  -->
+  <footer>
+    <span>© Katrīna Līva Dalbiņa — CC BY-NC 4.0</span>
+    <a href="https://www.instagram.com/k.lllv?igsh=M3RlMnd3MHd1a29w&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4.5"/>
+        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+      </svg>
+      @instagram
+    </a>
+  </footer>
+
+
+</body>
+</html>

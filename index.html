@@ -1,159 +1,408 @@
 <!DOCTYPE html>
-<html lang="lv">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - Dzīvā galerija</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!--
+  ================================================================
+  PAGE TITLE
+  ================================================================
+  This shows in the browser tab.
+  PERSONALISE: replace "Sunny Katrina" with your name.
+  ================================================================
+  -->
+  <title>Katrīna Līva Dalbiņa</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Playfair Display', serif;
-    background: #fff;
-    color: #1a1a1a;
-    overflow-x: hidden;
-}
+  <!--
+  ================================================================
+  FONT IMPORT
+  ================================================================
+  Loads DM Sans from Google Fonts.
+  To change the font:
+    1. Go to https://fonts.google.com, pick a new font
+    2. Copy its <link> embed code
+    3. Replace these two lines with the new code
+    4. Then update font-family in style.css too
+  ================================================================
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400&display=swap" rel="stylesheet">
 
-h1, h2, h3, p { margin: 0; padding: 0; }
-
-/* HEADER */
-header {
-    padding: 2rem 4rem;
-    background: white;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav h1 { font-size: 1rem; font-weight: 500; }
-nav ul { list-style: none; display: flex; gap: 2rem; }
-nav a { text-decoration: none; color: #666; }
-nav a:hover { color: #1a1a1a; }
-
-/* HERO */
-.hero {
-    padding: 4rem 4rem 2rem;
-    text-align: center;
-}
-
-.hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-.hero p { font-size: 1.25rem; color: #666; }
-
-/* GALERIJA - DZĪVA KAUDZE */
-.portfolio {
-    position: relative;
-    height: 500px; /* augstums galerijai */
-    overflow: hidden;
-    padding: 2rem;
-}
-
-.gallery img {
-    position: absolute;
-    width: 300px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s, z-index 0.3s;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-/* Hover efekts - palielina un paceļ priekšplānā */
-.gallery img:hover {
-    transform: scale(1.2) rotate(0deg);
-    z-index: 100;
-}
-
-/* Automātiska neliela kustība */
-@keyframes float1 {
-    0% { transform: translate(0,0) rotate(0deg); }
-    50% { transform: translate(10px,5px) rotate(2deg); }
-    100% { transform: translate(0,0) rotate(0deg); }
-}
-
-@keyframes float2 {
-    0% { transform: translate(0,0) rotate(0deg); }
-    50% { transform: translate(-8px,7px) rotate(-3deg); }
-    100% { transform: translate(0,0) rotate(0deg); }
-}
-
-@keyframes float3 {
-    0% { transform: translate(0,0) rotate(0deg); }
-    50% { transform: translate(5px,-6px) rotate(1deg); }
-    100% { transform: translate(0,0) rotate(0deg); }
-}
-
-/* Katram attēlam savs sākuma pozīcijas un animācija */
-#img1 { top: 50px; left: 100px; animation: float1 6s ease-in-out infinite; }
-#img2 { top: 100px; left: 250px; animation: float2 5s ease-in-out infinite; }
-#img3 { top: 150px; left: 400px; animation: float3 7s ease-in-out infinite; }
-#img4 { top: 50px; left: 550px; animation: float1 6s ease-in-out infinite; }
-#img5 { top: 120px; left: 700px; animation: float2 5s ease-in-out infinite; }
-#img6 { top: 80px; left: 850px; animation: float3 7s ease-in-out infinite; }
-
-/* FOOTER */
-footer {
-    background: white;
-    border-top: 1px solid #e5e5e5;
-    padding: 3rem 4rem;
-    margin-top: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-footer a { color: #666; text-decoration: none; }
-footer a:hover { color: #1a1a1a; }
-
-</style>
+  <!--
+  ================================================================
+  STYLESHEET
+  ================================================================
+  Links to the shared style.css file.
+  Keep this file in the same folder as index.html and about.html.
+  ================================================================
+  -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
+
+  <!--
+  ================================================================
+  HEADER
+  ================================================================
+  PERSONALISE:
+    · Replace "Sunny Katrina" (the site name) with your name
+    · The "Work" link points to the top of this page (#grid)
+    · The "About" link goes to about.html
+  ================================================================
+  -->
+  <header>
+    <span class="site-name">Katrīna Līva Dalbiņa</span>
     <nav>
-        <h1>Katrīna Līva Dalbiņa</h1>
-        <ul>
-            <li><a href="#">Sākums</a></li>
-            <li><a href="#">Par mani</a></li>
-            <li><a href="#">Kontakti</a></li>
-        </ul>
+      <a href="#grid" class="active">Work</a>
+      <a href="about.html">About</a>
     </nav>
-</header>
+  </header>
 
-<main>
-    <section class="hero">
-        <h2>Māksliniece<br>un programmētāja</h2>
-        <p>Radu interaktīvas pieredzes, kurās māksla satiekas ar tehnoloģijām.</p>
-    </section>
 
-    <section class="portfolio">
-        <h2>Izvēlētie darbi</h2>
-        <div class="gallery">
-            <img id="img1" src="https://via.placeholder.com/300x200?text=1" alt="Darbs 1">
-            <img id="img2" src="https://via.placeholder.com/300x200?text=2" alt="Darbs 2">
-            <img id="img3" src="https://via.placeholder.com/300x200?text=3" alt="Darbs 3">
-            <img id="img4" src="https://via.placeholder.com/300x200?text=4" alt="Darbs 4">
-            <img id="img5" src="https://via.placeholder.com/300x200?text=5" alt="Darbs 5">
-            <img id="img6" src="https://via.placeholder.com/300x200?text=6" alt="Darbs 6">
-        </div>
-    </section>
-</main>
+  <!--
+  ================================================================
+  MAIN GRID
+  ================================================================
+  The contact-sheet style layout with 10 photos and their labels.
 
-<footer>
-    <p>© 2026 Katrīna Līva</p>
-    <div>
-        <a href="https://www.instagram.com/k.lllv/" target="_blank">Instagram</a> |
-        <a href="#">Youtube</a> |
-        <a href="#">Facebook</a>
-    </div>
-</footer>
+  HOW THE GRID WORKS:
+    · The numbered cells are created automatically by JavaScript
+      at the bottom of this file — you don't write them by hand.
+    · Photos and labels are placed ON TOP of those cells using
+      CSS grid positions (grid-column and grid-row).
+
+  HOW TO MOVE A PHOTO OR LABEL:
+    · grid-column: 4 / 8  → starts at column 4, ends at column 8
+    · grid-row:    2 / 6  → starts at row 2, ends at row 6
+    · A larger span (e.g. 4/10) = wider/taller on the page.
+
+  HOW TO REPLACE PLACEHOLDER IMAGES:
+    · Find src="https://placehold.co/..."
+    · Replace with your file: src="images/yourphoto.jpg"
+    · Make sure your image file is in the same folder,
+      or in a subfolder like images/
+
+  HOW TO EDIT PHOTO NAMES AND DESCRIPTIONS:
+    · Find the .grid-label div near each photo
+    · Edit the text inside .label-title (photo name)
+    · Edit the text inside .label-body (description)
+  ================================================================
+  -->
+  <section class="grid-section" id="grid">
+    <div class="grid" id="main-grid">
+
+
+      <!-- =====================================================
+      WORK 01
+      ===================================================== -->
+
+      <!--
+      PHOTO 01 — tall portrait format
+      grid-column 2/5 = 3 columns wide, grid-row 1/6 = 5 rows tall
+      PERSONALISE: change src to your image file
+      -->
+      <div class="grid-photo" style="grid-column: 2 / 5; grid-row: 1 / 6;">
+        <img
+          src="bildes/IMG_6506.jpeg.jpg"
+          alt="Work 01 — replace this description for accessibility"
+        />
+      </div>
+
+      <!--
+      LABEL 01 — floats a few cells away from photo 01
+      PERSONALISE: change title and body text
+      -->
+      <div class="grid-label" style="grid-column: 6 / 9; grid-row: 2 / 5;">
+        <p class="label-title">Title of Work 01</p>
+        <p class="label-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace with your description of this photograph.</p>
+      </div>
+
+
+      <!-- =====================================================
+      WORK 02
+      ===================================================== -->
+
+      <!--
+      PHOTO 02 — small square
+      PERSONALISE: change src to your image file
+      -->
+      <div class="grid-photo" style="grid-column: 10 / 13; grid-row: 1 / 4;">
+        <img
+          src="bildes/AAA_6674.jpg"
+          alt="Work 02 — replace this description"
+        />
+      </div>
+
+      <!--
+      LABEL 02 — floats below and right of photo 02
+      PERSONALISE: change title and body text
+      -->
+      <div class="grid-label" style="grid-column: 13 / 16; grid-row: 2 / 5;">
+        <p class="label-title">Title of Work 02</p>
+        <p class="label-body">Pellentesque habitant morbi. Replace with your own words about this image and what it means.</p>
+      </div>
+
+
+      <!-- =====================================================
+      WORK 03
+      ===================================================== -->
+
+      <!--
+      PHOTO 03 — wide landscape
+      PERSONALISE: change src to your image file
+      -->
+      <div class="grid-photo" style="grid-column: 5 / 10; grid-row: 6 / 9;">
+        <img
+          src="bildes/6EABA302-B973-4CF5-912A-E51132A4B835.jpeg"
+          alt="Work 03 — replace this description"
+        />
+      </div>
+
+      <!--
+      LABEL 03 — floats above photo 03
+      PERSONALISE: change title and body text
+      -->
+      <div class="grid-label" style="grid-column: 2 / 5; grid-row: 6 / 8;">
+        <p class="label-title">Title of Work 03</p>
+        <p class="label-body">Ut enim ad minim veniam. Write what you want viewers to understand about this piece.</p>
+      </div>
+
+
+      <!-- =====================================================
+      WORK 04
+      ===================================================== -->
+
+      <!--
+      PHOTO 04 — tall portrait, right side
+      PERSONALISE: change src to your image file
+      -->
+      <div class="grid-photo" style="grid-column: 14 / 17; grid-row: 4 / 10;">
+        <img
+          src="bildes/IMG_8484.jpeg.jpg"
+          alt="Work 04 — replace this description"
+        />
+      </div>
+
+      <!--
+      LABEL 04 — floats left of photo 04
+      PERSONALISE: change title and body text
+      -->
+      <div class="grid-label" style="grid-column: 11 / 14; grid-row: 5 / 7;">
+        <p class="label-title">Title of Work 04</p>
+        <p class="label-body">Duis aute irure dolor in reprehenderit. Your description of this photograph goes here.</p>
+      </div>
+
+
+      <!-- =====================================================
+      WORK 05
+      ===================================================== -->
+
+      <!--
+      PHOTO 05 — medium square, lower left
+      PERSONALISE: change src to your image file
+      -->
+      <div class="grid-photo" style="grid-column: 2 / 6; grid-row: 9 / 13;">
+        <img
+          src="bildes/IMG_3044.jpeg"
+          alt="Work 05 — replace this description"
+        />
+      </div>
+
+      <!--
+      LABEL 05 — floats to the right of photo 05
+      PERSONALISE: change title and body text
+      -->
+      <div class="grid-label" style="grid-column: 7 / 10; grid-row: 10 / 12;">
+        <p class="label-title">Title of Work 05</p>
+        <p class="label-body">Excepteur sint occaecat cupidatat non proident. Describe the light, the moment, the subject.</p>
+      </div>
+
+
+      <!-- =====================================================
+      WORK 06
+      ===================================================== -->
+
+      <!--
+      PHOTO 06 — wide landscape, centre
+      PERSONALISE: change src to your image file
+      -->
+      <div class="grid-photo" style="grid-column: 9 / 15; grid-row: 10 / 13;">
+        <img
+          src="bildes/IMG_3095.jpeg.jpg"
+          alt="Work 06 — replace this description"
+        />
+      </div>
+
+      <!--
+      LABEL 06 — floats above photo 06
+      PERSONALISE: change title and body text
+      -->
+      <div class="grid-label" style="grid-column: 10 / 13; grid-row: 8 / 10;">
+        <p class="label-title">Title of Work 06</p>
+        <p class="label-body">Sunt in culpa qui officia deserunt. Add your own description of this work here.</p>
+      </div>
+
+
+      <!-- =====================================================
+      WORK 07
+      ===================================================== -->
+
+      <!--
+      PHOTO 07 — small portrait, far right
+      PERSONALISE: change src to your image file
+      -->
+      <div class="grid-photo" style="grid-column: 15 / 17; grid-row: 13 / 17;">
+        <img
+          src="bildes/IMG_7809.jpeg.jpg"
+          alt="Work 07 — replace this description"
+        />
+      </div>
+
+      <!--
+      LABEL 07 — floats left of photo 07
+      PERSONALISE: change title and body text
+      -->
+      <div class="grid-label" style="grid-column: 12 / 15; grid-row: 14 / 16;">
+        <p class="label-title">Title of Work 07</p>
+        <p class="label-body">Laboris nisi ut aliquip ex ea commodo. Write what this image is about for you.</p>
+      </div>
+
+
+      <!-- =====================================================
+      WORK 08
+      ===================================================== -->
+
+      <!--
+      PHOTO 08 — wide, lower centre
+      PERSONALISE: change src to your image file
+      -->
+      <div class="grid-photo" style="grid-column: 3 / 8; grid-row: 14 / 17;">
+        <img
+          src="bildes/8744CAF7-649C-4125-BB44-2E782B5354F6.jpeg"
+          alt="Work 08 — replace this description"
+        />
+      </div>
+
+      <!--
+      LABEL 08 — floats below photo 08
+      PERSONALISE: change title and body text
+      -->
+      <div class="grid-label" style="grid-column: 2 / 5; grid-row: 17 / 19;">
+        <p class="label-title">Title of Work 08</p>
+        <p class="label-body">Voluptate velit esse cillum dolore eu fugiat. Let your words carry the feeling of the frame.</p>
+      </div>
+
+
+      <!-- =====================================================
+      WORK 09
+      ===================================================== -->
+
+      <!--
+      PHOTO 09 — tall portrait, left side lower
+      PERSONALISE: change src to your image file
+      -->
+      <div class="grid-photo" style="grid-column: 7 / 10; grid-row: 17 / 22;">
+        <img
+          src="bildes/IMG_8677.jpeg.jpg"
+          alt="Work 09 — replace this description"
+        />
+      </div>
+
+      <!--
+      LABEL 09 — floats right of photo 09
+      PERSONALISE: change title and body text
+      -->
+      <div class="grid-label" style="grid-column: 10 / 13; grid-row: 18 / 20;">
+        <p class="label-title">Title of Work 09</p>
+        <p class="label-body">Nulla pariatur at vero eos et accusamus. Write your own words about this photograph.</p>
+      </div>
+
+
+      <!-- =====================================================
+      WORK 10
+      ===================================================== -->
+
+      <!--
+      PHOTO 10 — medium square, bottom right
+      PERSONALISE: change src to your image file
+      -->
+      <div class="grid-photo" style="grid-column: 13 / 17; grid-row: 18 / 22;">
+        <img
+          src="bildes/"
+          alt="Work 10 — replace this description"
+        />
+      </div>
+
+      <!--
+      LABEL 10 — floats above photo 10
+      PERSONALISE: change title and body text
+      -->
+      <div class="grid-label" style="grid-column: 13 / 16; grid-row: 16 / 18;">
+        <p class="label-title">Title of Work 10</p>
+        <p class="label-body">Nam libero tempore cum soluta nobis eligendi. Your final image, your final words.</p>
+      </div>
+
+
+    </div><!-- end .grid -->
+  </section>
+
+
+  <!--
+  ================================================================
+  FOOTER
+  ================================================================
+  PERSONALISE:
+    · Replace "Sunny Katrina" with your name if needed
+    · Replace "@instagram" with your real Instagram handle
+      both in href="https://instagram.com/instagram"
+      and in the visible text @instagram
+  ================================================================
+  -->
+  <footer>
+    <span>© Katrīna Līva Dalbiņa 2026</span>
+    <a href="https://www.instagram.com/k.lllv?igsh=M3RlMnd3MHd1a29w&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg class="ig-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4.5"/>
+        <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+      </svg>
+      @instagram
+    </a>
+  </footer>
+
+
+  <!--
+  ================================================================
+  JAVASCRIPT — numbered cells
+  ================================================================
+  This automatically fills the grid with numbered cells.
+  You do NOT need to write them by hand.
+
+  PERSONALISE:
+    · totalCells — how many numbered squares fill the grid.
+      More cells = grid extends further down the page.
+      Try values between 200 and 350.
+    · totalCols  — must match the number in style.css
+      (where it says repeat(17, var(--cell)))
+      Change both together if you want more/fewer columns.
+  ================================================================
+  -->
+  <script>
+    const grid      = document.getElementById('main-grid');
+    const totalCells = 272; /* PERSONALISE: total numbered squares */
+    const totalCols  = 17;  /* PERSONALISE: must match CSS columns  */
+
+    for (let i = 1; i <= totalCells; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      cell.textContent = i;
+      grid.insertBefore(cell, grid.firstChild);
+    }
+  </script>
+
 
 </body>
 </html>

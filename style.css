@@ -1,493 +1,400 @@
-/* ============================================
-   CSS RESET - Noņem pārlūka default stilus
-   ============================================ */
+/*
+================================================================
+STYLE.CSS — Sunny Katrina Portfolio
+================================================================
+This file controls ALL visual styling for both pages.
+index.html and about.html both link to this one file,
+so a change here affects everything everywhere.
+================================================================
+*/
 
-* {
-    /* ↑ Zvaigznīte (*) = selektors VISIEM elementiem */
-   
-    margin: 0;
-    /* ↑ Noņem visas ārējās atstarpes */
-   
-    padding: 0;
-    /* ↑ Noņem visas iekšējās atstarpes */
-   
-    box-sizing: border-box;
-    /* ↑ Padding un border IETILPST width/height */
-    /* Atvieglo izmēru aprēķinus */
+
+/*
+================================================================
+FONTS
+================================================================
+Currently using "DM Sans" — clean, modern, thin.
+To change the font:
+  1. Go to https://fonts.google.com
+  2. Pick a font, click "Get font" → "Get embed code"
+  3. Paste the new <link> tag into the <head> of BOTH
+     index.html and about.html
+  4. Then change 'DM Sans' below to your new font name
+================================================================
+*/
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap');
+
+
+/*
+================================================================
+GLOBAL VARIABLES — change these to restyle the whole site
+================================================================
+--bg          : page background colour
+--ink         : main text colour
+--muted       : colour for cell numbers and secondary text
+--font        : font family used everywhere
+--cell        : size of each grid square in pixels
+================================================================
+*/
+:root {
+  --bg:    #ffffff;
+  --ink:   #6e1a5a;
+  --muted: #d8d4d4;
+  --font:  'DM Sans', sans-serif;
+  --cell:  76px;
 }
 
-/* ============================================
-   PAMATA BODY STILI
-   ============================================ */
-    /* ↑ Stili VISAM lapas saturam */
-   
-   body {
-    font-family: 'Cormorant Garamond', serif;
 
-    /* ↑ Izmanto sistēmas fontu (Mac/Windows default) */
-    /* Sans-serif = bez dekoratīvām līnijām */
-   
-    line-height: 1.6;
-    /* ↑ Atstarpe starp teksta rindām (1.6x no fonta izmēra) */
-    /* Laba lasāmība */
-   
-    color: #1a1a1a;
-    /* ↑ Teksta krāsa - gandrīz melns (ne 100% melns) */
-    /* Hex kods: # + 6 simboli (RR GG BB) */
-   
-    background: #f853b6;
-    /* ↑ Lapas fona krāsa - gaišs pelēks */
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* ============================================
-   HEADER - Augšējā navigācijas josla
-   ============================================ */
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-weight: 300;
+}
 
+
+/*
+================================================================
+HEADER
+================================================================
+The top bar — contains your name and navigation.
+padding: space inside the header (top/bottom left/right)
+border-bottom: the thin line under the header
+  set to "none" to remove it
+================================================================
+*/
 header {
-    /* ↑ Mērķē <header> tagu */
-   
-    padding: 2rem 4rem;
-    /* ↑ Iekšējās atstarpes: 2rem augšā/apakšā, 4rem kreisais/labais */
-    /* rem = relative unit (1rem ≈ 16px) */
-   
-    background: white;
-    /* ↑ Balts fons */
-   
-    border-bottom: 1px solid #e5e5e5;
-    /* ↑ Plāna pelēka līnija apakšā */
-    /* 1px biezums, solid līnija, #e5e5e5 krāsa */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 40px;
+  border-bottom: 1px solid #e0deda;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 200;
 }
 
-nav {
-    /* ↑ Mērķē <nav> tagu header iekšā */
-   
-    display: flex;
-    /* ↑ Flexbox layout - elementi rindā */
-   
-    justify-content: space-between;
-    /* ↑ Izvieto elementus: viens kreisajā, otrs labajā pusē */
-   
-    align-items: center;
-    /* ↑ Centrē elementus vertikāli */
-   
-    max-width: 1400px;
-    /* ↑ Maksimālais platums (lai neizplūstu uz lielajiem ekrāniem) */
-   
-    margin: 0 auto;
-    /* ↑ Centrē horizontāli: 0 augšā/apakšā, auto kreisais/labais */
+/*
+================================================================
+SITE NAME (in header)
+================================================================
+font-size     : size of your name
+letter-spacing: space between letters (em = relative units)
+text-transform: "uppercase" = all caps, "none" = normal
+================================================================
+*/
+.site-name {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
-nav h1 {
-    /* ↑ Mērķē <h1> kas ir nav iekšā (logo/vārds) */
-   
-    font-size: 1rem;
-    /* ↑ Izmērs 1rem (≈16px) - mazs, minimālistisks */
-   
-    font-weight: 500;
-    /* ↑ Svars 500 (starp normal 400 un bold 700) */
-   
-    letter-spacing: -0.02em;
-    /* ↑ Samazina atstarpi starp burtiem (saspiež) */
-    /* Negatīvs = tuvāk kopā */
-}
-
-nav ul {
-    /* ↑ Mērķē <ul> sarakstu nav iekšā */
-   
-    list-style: none;
-    /* ↑ Noņem aizzīmes (bullet points) */
-   
-    display: flex;
-    /* ↑ Saraksta elementi rindā (ne pa vertikāli) */
-   
-    gap: 3rem;
-    /* ↑ Atstarpe starp saraksta elementiem */
-}
-
+/*
+================================================================
+HEADER NAVIGATION LINKS
+================================================================
+These are the links like "Work" and "About" in the header.
+margin-left: gap between each nav link
+opacity    : how faded the links look normally (0=invisible, 1=full)
+================================================================
+*/
 nav a {
-    /* ↑ Mērķē VISAS saites (<a>) nav iekšā */
-   
-    color: #666;
-    /* ↑ Vidēji pelēka krāsa */
-   
-    text-decoration: none;
-    /* ↑ Noņem pasvītrojumu */
-   
-    font-size: 0.95rem;
-    /* ↑ Mazliet mazāks par normālo (15.2px) */
-   
-    transition: color 0.2s;
-    /* ↑ Smooth krāsas maiņa 0.2 sekundes */
-    /* Animē hover efektu */
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  margin-left: 32px;
+  opacity: 0.45;
+  transition: opacity 0.25s ease;
+}
+nav a:hover  { opacity: 1; }
+nav a.active { opacity: 1; }
+
+
+/*
+================================================================
+GRID SECTION (index.html only)
+================================================================
+The main numbered-cell area that holds photos and labels.
+padding: breathing room around the whole grid
+================================================================
+*/
+.grid-section {
+  padding: 40px;
 }
 
-nav a:hover {
-    /* ↑ Kad pele ir virs saites */
-   
-    color: #1a1a1a;
-    /* ↑ Kļūst tumšāka (gandrīz melna) */
+/*
+================================================================
+THE GRID
+================================================================
+grid-template-columns: how many columns.
+  "repeat(17, var(--cell))" = 17 columns, each --cell px wide.
+  Change 17 to more or fewer columns.
+grid-auto-rows: height of each row — matches --cell for squares.
+position relative: needed so photos can float over the grid.
+================================================================
+*/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(14, var(--cell));
+  grid-auto-rows: var(--cell);
+  position: relative;
 }
 
-/* ============================================
-   MAIN - Galvenais saturs
-   ============================================ */
-
-main {
-    /* ↑ Mērķē <main> tagu */
-   
-    max-width: 1400px;
-    /* ↑ Ierobežo platumu */
-   
-    margin: 0 auto;
-    /* ↑ Centrē horizontāli */
-   
-    padding: 0 4rem;
-    /* ↑ Padding: 0 augšā/apakšā, 4rem kreisais/labais */
+/*
+================================================================
+NUMBERED CELLS
+================================================================
+Each small numbered square in the grid.
+The numbers are added automatically by JavaScript.
+To hide numbers entirely: set color to transparent or
+  delete the cell.textContent = i; line in the <script>.
+font-size   : size of the cell number
+padding     : where the number sits inside the cell
+color       : uses --muted variable (grey by default)
+border      : set to "none" — no grid lines visible
+================================================================
+*/
+.cell {
+  position: relative;
+  font-size: 7.5px;
+  color: var(--muted);
+  padding: 4px 5px;
+  border: none; /* PERSONALISE: add "1px solid #ddd" to show grid lines */
 }
 
-/* ============================================
-   HERO SEKCIJA - Liela intro daļa
-   ============================================ */
 
-.hero {
-    /* ↑ Punkts (.) nozīmē CLASS selector */
-    /* Mērķē elementus ar class="hero" */
-   
-    padding: 8rem 0 6rem;
-    /* ↑ Padding: 8rem augšā, 0 kreisais/labais, 6rem apakšā */
-    /* Daudz vietas augšā un apakšā */
+/*
+================================================================
+PHOTOS IN THE GRID
+================================================================
+Each photo is placed at a specific grid column and row.
+They float above the numbered cells using z-index.
+
+HOW TO PLACE A PHOTO:
+  In the HTML, each photo div has:
+    style="grid-column: 3 / 7; grid-row: 2 / 6;"
+  grid-column: 3 / 7  → starts at col 3, ends at col 7 (4 cols wide)
+  grid-row:    2 / 6  → starts at row 2, ends at row 6 (4 rows tall)
+  Larger span = bigger photo on the grid.
+
+HOW TO REPLACE A PLACEHOLDER IMAGE:
+  Find src="https://placehold.co/..." in the HTML
+  Replace with your file: src="images/photo-name.jpg"
+  Or a web link:          src="https://yoursite.com/photo.jpg"
+
+TO MAKE ALL PHOTOS BLACK & WHITE:
+  Uncomment the filter line below (remove the /* and *\/)
+================================================================
+*/
+.grid-photo {
+  position: absolute;
+  z-index: 2;
+  /* filter: grayscale(100%); */  /* ← remove the slashes to activate B&W */
 }
 
-.hero h2 {
-    /* ↑ Mērķē <h2> kas ir .hero iekšā */
-   
-    font-size: 4rem;
-    /* ↑ Ļoti liels (64px) - galvenais virsraksts */
-   
-    font-weight: 300;
-    /* ↑ Plāns fonts (light) */
-    /* 300 ir viegls, 400 normāls, 700 treknraksts */
-   
-    letter-spacing: -0.03em;
-    /* ↑ Vēl vairāk saspiesti burti */
-   
-    margin-bottom: 1.5rem;
-    /* ↑ Atstarpe zem virsraksta */
-   
-    line-height: 1.1;
-    /* ↑ Mazāka atstarpe starp rindām (kompaktāks) */
+.grid-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.hero p {
-    /* ↑ Mērķē <p> kas ir .hero iekšā */
-   
-    font-size: 1.25rem;
-    /* ↑ Lielāks par normālo (20px) */
-   
-    color: #666;
-    /* ↑ Vidēji pelēks (vieglāks par virsrakstu) */
-   
-    font-weight: 300;
-    /* ↑ Plāns fonts */
-   
-    max-width: 600px;
-    /* ↑ Ierobežo teksta platumu (lasāmībai) */
-    /* Pārāk plats teksts ir grūti lasāms */
+
+/*
+================================================================
+TEXT LABELS IN THE GRID
+================================================================
+The floating name + description blocks near each photo.
+They are placed on the grid the same way as photos.
+
+max-width   : how wide the text block can grow
+z-index: 2  : floats above the numbered cells
+================================================================
+*/
+.grid-label {
+  position: absolute;
+  z-index: 2;
+  max-width: 148px;
 }
 
-/* ============================================
-   PORTFOLIO SEKCIJA - Darbu galerija
-   ============================================ */
-
-.portfolio {
-    /* ↑ Mērķē elementus ar class="portfolio" */
-   
-    padding: 4rem 0 8rem;
-    /* ↑ Padding: 4rem augšā, 0 kreisais/labais, 8rem apakšā */
+/*
+================================================================
+LABEL TITLE (photo name)
+================================================================
+This is the bold/uppercase name of each photo.
+font-size     : size of the title
+letter-spacing: spacing between letters
+margin-bottom : gap between title and description text
+================================================================
+*/
+.label-title {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  color: var(--ink);
 }
 
-.portfolio h2 {
-    /* ↑ Virsraksts portfolio sekcijā */
-   
-    font-size: 0.875rem;
-    /* ↑ Mazs (14px) */
-   
-    text-transform: uppercase;
-    /* ↑ Visi burti LIELIE */
-   
-    letter-spacing: 0.1em;
-    /* ↑ Daudz vietas starp burtiem (plašāk) */
-    /* Pozitīvs = tālāk */
-   
-    color: #999;
-    /* ↑ Gaišs pelēks */
-   
-    margin-bottom: 4rem;
-    /* ↑ Liela atstarpe zem virsraksta */
-   
-    font-weight: 500;
-    /* ↑ Vidēji smags */
+/*
+================================================================
+LABEL BODY (photo description)
+================================================================
+The small paragraph of descriptive text under each photo name.
+font-size  : size of description text
+line-height: spacing between lines of text
+color      : slightly lighter than main ink
+================================================================
+*/
+.label-body {
+  font-size: 9px;
+  line-height: 1.6;
+  font-weight: 300;
+  color: #555;
 }
 
-/* ============================================
-   GALERIJA - Projektu grid
-   ============================================ */
 
-/* ============================================
-   PORTFOLIO GALERIJA - Horizontāla scroll galerija
-   ============================================ */
-
-.gallery {
-    display: flex;              /* Horizontāla rinda */
-    gap: 2rem;                  /* Atstarpe starp kartītēm */
-    overflow-x: auto;           /* Scroll horizontāli */
-    padding-bottom: 1rem;       /* Mazliet vietas zem kartītēm */
-    scroll-behavior: smooth;    /* Gluds scroll */
+/*
+================================================================
+ABOUT PAGE LAYOUT (about.html only)
+================================================================
+Two-column layout: text on left, portrait on right.
+max-width: limits how wide the section grows on large screens
+padding  : space around the whole section
+gap      : space between the two columns
+================================================================
+*/
+.about-section {
+  display: grid;
+  grid-template-columns: 1fr 240px; /* PERSONALISE: change 240px to resize portrait column */
+  gap: 100px;
+  max-width: 860px;
+  padding: 80px 40px;
 }
 
-/* Noņem scroll bar vizuāli */
-.gallery::-webkit-scrollbar {
-    display: none;
-}
-.gallery {
-    -ms-overflow-style: none;   /* Internet Explorer */
-    scrollbar-width: none;      /* Firefox */
-}
-
-/* ============================================
-   PROJEKTA KARTĪTE
-   ============================================ */
-
-.project-card {
-    min-width: 400px;           /* Garantē minimālo platumu */
-    flex-shrink: 0;             /* Neļauj kartītei sarauties */
-    background: white;           /* Saglabā kartītes fona krāsu */
-    transition: transform 0.3s ease;
-    cursor: pointer;
+.about-section h2 {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 32px;
 }
 
-.project-card:hover {
-    transform: translateY(-4px); /* Hover efekts: paceļ kartīti uz augšu */
+/*
+================================================================
+ABOUT BIO TEXT
+================================================================
+Your written bio paragraphs.
+font-size  : size of bio text
+line-height: spacing between lines
+max-width  : keeps lines from getting too wide to read comfortably
+================================================================
+*/
+.about-text p {
+  font-size: 13px;
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 440px;
 }
 
-/* ============================================
-   ATTĒLA VIETA
-   ============================================ */
-
-.project-card .img-placeholder {
-    width: 100%;
-    aspect-ratio: 4/3;           /* Foto proporcija */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;             /* Liels fonts (emoji/teksts) */
-    background: #f5f5f5;         /* Default fons */
-    margin-bottom: 1.5rem;
+.about-text p + p {
+  margin-top: 18px; /* gap between paragraphs */
 }
 
-/* Dažādas fona krāsas katrai kartītei */
-.card1 .img-placeholder { background: #f0f0f0; }
-.card2 .img-placeholder { background: #e8e8e8; }
-.card3 .img-placeholder { background: #f5f5f5; }
+/*
+================================================================
+PORTRAIT PHOTO (about page)
+================================================================
+Your small portrait image on the about page.
+aspect-ratio: 3 / 4 = portrait orientation (taller than wide)
+  Change to 1 / 1 for square, 4 / 3 for landscape.
+object-fit  : "cover" crops the image to fill the box neatly
 
-/* ============================================
-   KARTĪTES TEKSTS
-   ============================================ */
+TO REPLACE THE PLACEHOLDER:
+  In about.html find <img class="about-photo" src="...">
+  Change src to your photo, e.g. src="images/portrait.jpg"
 
-.project-card h3 {
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: #1a1a1a;
-    margin-bottom: 0.5rem;
+TO MAKE PORTRAIT BLACK & WHITE:
+  Uncomment the filter line below
+================================================================
+*/
+.about-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  /* filter: grayscale(100%); */  /* ← remove slashes to activate B&W */
 }
 
-.project-card p {
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: #666;
-}
 
-/* ============================================
-   FOOTER - Apakšējā daļa
-   ============================================ */
-
+/*
+================================================================
+FOOTER
+================================================================
+The bar at the very bottom of every page.
+padding       : space inside the footer
+border-top    : thin line above the footer
+font-size     : size of footer text
+================================================================
+*/
 footer {
-    /* ↑ Mērķē <footer> tagu */
-   
-    background: white;
-    /* ↑ Balts fons */
-   
-    border-top: 1px solid #e5e5e5;
-    /* ↑ Plāna pelēka līnija AUGŠĀ */
-   
-    padding: 3rem 4rem;
-    /* ↑ Padding: 3rem augšā/apakšā, 4rem kreisais/labais */
-   
-    margin-top: 4rem;
-    /* ↑ Liela atstarpe virs footer */
+  border-top: 1px solid #e0deda;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
 }
 
-.footer-content {
-    /* ↑ Container footer saturam */
-   
-    max-width: 1400px;
-    /* ↑ Ierobežo platumu */
-   
-    margin: 0 auto;
-    /* ↑ Centrē horizontāli */
-   
-    display: flex;
-    /* ↑ Flexbox layout */
-   
-    justify-content: space-between;
-    /* ↑ Copyright kreisajā, saites labajā pusē */
-   
-    align-items: center;
-    /* ↑ Centrē vertikāli */
+/*
+================================================================
+FOOTER INSTAGRAM LINK
+================================================================
+The Instagram icon + handle in the footer.
+To change the link: find href="https://instagram.com/..."
+  in the HTML footer and replace the username.
+================================================================
+*/
+footer a {
+  color: var(--muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: color 0.2s ease;
 }
+footer a:hover { color: var(--ink); }
 
-footer p {
-    /* ↑ Copyright teksts */
-   
-    color: #999;
-    /* ↑ Gaišs pelēks */
-   
-    font-size: 0.875rem;
-    /* ↑ Mazs (14px) */
+/*
+================================================================
+INSTAGRAM ICON
+================================================================
+Drawn with SVG code — no image file needed.
+width/height: size of the icon
+stroke-width: thickness of the icon lines
+================================================================
+*/
+.ig-icon {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
 }
-
-.social-links {
-    /* ↑ Container sociālajām saitēm */
-   
-    display: flex;
-    /* ↑ Saites rindā */
-   
-    gap: 2rem;
-    /* ↑ Atstarpe starp saitēm */
-}
-
-.social-links a {
-    /* ↑ Atsevišķa sociālā saite */
-   
-    color: #666;
-    /* ↑ Vidēji pelēks */
-   
-    text-decoration: none;
-    /* ↑ Bez pasvītrojuma */
-   
-    font-size: 0.875rem;
-    /* ↑ Mazs (14px) */
-   
-    transition: color 0.2s;
-    /* ↑ Smooth krāsas maiņa */
-}
-
-.social-links a:hover {
-    /* ↑ Kad pele virs saites */
-   
-    color: #1a1a1a;
-    /* ↑ Kļūst tumšāka */
-}
-
-/* ============================================
-   RESPONSIVE - Mobilajiem telefoniem
-   ============================================ */
-
-@media (max-width: 768px) {
-    /* ↑ Media query = CSS kas darbojas TIK JA... */
-    /* max-width: 768px = ekrāns 768px vai mazāks */
-    /* Tipiskais tablet/phone breakpoint */
-   
-    header, main, footer {
-        /* ↑ Visiem trim elementiem */
-       
-        padding-left: 2rem;
-        padding-right: 2rem;
-        /* ↑ Mazāks padding sānos (4rem → 2rem) */
-        /* Vairāk vietas šaurā ekrānā */
-    }
-
-    nav {
-        /* ↑ Navigācija mobilajā */
-       
-        flex-direction: column;
-        /* ↑ Elementi pa vertikāli (ne horizontāli) */
-        /* Logo virs menu */
-       
-        gap: 1.5rem;
-        /* ↑ Atstarpe starp logo un menu */
-       
-        align-items: flex-start;
-        /* ↑ Izlīdzina pa kreisi (nevis centru) */
-    }
-
-    nav ul {
-        /* ↑ Menu saraksts mobilajā */
-       
-        gap: 2rem;
-        /* ↑ Mazāka atstarpe (3rem → 2rem) */
-    }
-
-    .hero {
-        /* ↑ Hero sekcija mobilajā */
-       
-        padding: 4rem 0 3rem;
-        /* ↑ Mazāks padding (8rem → 4rem, 6rem → 3rem) */
-    }
-
-    .hero h2 {
-        /* ↑ Hero virsraksts mobilajā */
-       
-        font-size: 2.5rem;
-        /* ↑ Mazāks (4rem → 2.5rem = 64px → 40px) */
-    }
-
-    .hero p {
-        /* ↑ Hero teksts mobilajā */
-       
-        font-size: 1.1rem;
-        /* ↑ Mazāks (1.25rem → 1.1rem) */
-    }
-
-    .gallery {
-        /* ↑ Projektu grid mobilajā */
-       
-        grid-template-columns: 1fr;
-        /* ↑ TIK 1 kolonna (nevis 2-3) */
-        /* Visi projekti pa vertikāli */
-    }
-
-    .footer-content {
-        /* ↑ Footer saturs mobilajā */
-       
-        flex-direction: column;
-        /* ↑ Elementi pa vertikāli */
-        /* Copyright virs saitēm */
-       
-        gap: 1.5rem;
-        /* ↑ Atstarpe starp elementiem */
-       
-        align-items: flex-start;
-        /* ↑ Izlīdzina pa kreisi */
-    }
-}
-
-/* ============================================
-   KOPSAVILKUMS - KO MAINĪT:
-   ============================================
-   
-   KRĀSAS:
-   - Rinda 32: Teksta krāsa (#1a1a1a)
-   - Rinda 35: Fona krāsa (#fafafa)
-   - Rinda 54: Header fons (white)
-   
-   IZMĒRI:
-   - Rinda 139: Hero virsraksts (4rem)
-   - Rinda 227: Galvenā platums (1400px)
-   
-   FONTI:
-   - Rinda 26: Font family
-   
-   ============================================ */
-
-
